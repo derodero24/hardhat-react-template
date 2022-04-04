@@ -2,6 +2,7 @@
 /coverage
 /node_modules
 
+/.DS_store
 /.env
 /coverage.json
 /package-lock.json
