@@ -14,8 +14,8 @@ import {
   Web3Provider,
 } from '@ethersproject/providers';
 
+import { Greeter } from '../../typechain-types';
 import GreeterInfo from './abi/Greeter.json';
-import { Greeter } from './typechain-types';
 
 declare global {
   interface Window {
@@ -39,7 +39,7 @@ export const WalletContext = createContext({
   connectWallet: () => {},
 });
 
-const contractAddress = '0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
+const contractAddress = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0';
 
 export default function WalletProvider(props: { children: ReactNode }) {
   const [wallet, setWallet] = useState<Wallet>();
