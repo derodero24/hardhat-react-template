@@ -8,6 +8,7 @@
     "coverage": "npx hardhat coverage",
     "deploy": "npx hardhat run scripts/deploy.ts --network localhost",
     "serve": "npx hardhat node",
+    "test": "npx hardhat test",
     "build": "react-scripts build",
     "start": "HTTPS=true react-scripts start"
   },
