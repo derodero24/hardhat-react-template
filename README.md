@@ -1,4 +1,4 @@
-# simple onchain NFT
+# HardHat React Template
 
 ```shell
 npm run accounts
