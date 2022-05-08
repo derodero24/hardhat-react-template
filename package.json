@@ -1,6 +1,7 @@
 {
   "name": "hardhat-react-template",
   "version": "1.0.0",
+  "homepage": "./",
   "scripts": {
     "accounts": "npx hardhat accounts",
     "clean": "npx hardhat clean",
