@@ -3,7 +3,9 @@ import '@nomiclabs/hardhat-waffle';
 import '@typechain/hardhat';
 
 import * as dotenv from 'dotenv';
-import { HardhatUserConfig, task } from 'hardhat/config';
+import { task } from 'hardhat/config';
+
+import type { HardhatUserConfig } from 'hardhat/config';
 
 dotenv.config();
 const { RINKEBY_URL, PRIVATE_KEY } = process.env;
@@ -20,7 +22,7 @@ const config: HardhatUserConfig = {
   solidity: '0.8.9',
   networks: {
     rinkeby: {
-      url: RINKEBY_URL,
+      url: RINKEBY_URL as string,
       accounts: [`0x${PRIVATE_KEY}`],
     },
     shibuya: {

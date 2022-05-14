@@ -1,17 +1,34 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
-    "target": "es2018",
-    "module": "commonjs",
-    "strict": true,
+    "target": "ES2019",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2019"
+    ],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "baseUrl": ".",
     "esModuleInterop": true,
-    "declaration": true
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "paths": {
+      "~/*": [
+        "./app/*"
+      ]
+    },
+    "resolveJsonModule": true,
+    "strict": true
   },
   "include": [
-    "./scripts",
-    "./test",
-    "./typechain-types"
-  ],
-  "files": [
-    "./hardhat.config.ts"
+    "app",
+    "scripts",
+    "test",
+    "typechain-types",
+    "remix.env.d.ts",
+    "hardhat.config.ts"
   ]
 }

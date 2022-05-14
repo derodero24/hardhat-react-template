@@ -1,21 +1,16 @@
+import { Web3Provider } from '@ethersproject/providers';
 import { Contract } from 'ethers';
-import {
-  createContext,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState,
-} from 'react';
+import { createContext, useCallback, useEffect, useState } from 'react';
 
-import {
+import GreeterInfo from './abi/Greeter.json';
+
+import type { Greeter } from '../../typechain-types';
+import type {
   ExternalProvider,
   JsonRpcSigner,
   Provider,
-  Web3Provider,
 } from '@ethersproject/providers';
-
-import { Greeter } from '../../typechain-types';
-import GreeterInfo from './abi/Greeter.json';
+import type { ReactNode } from 'react';
 
 declare global {
   interface Window {
@@ -39,7 +34,7 @@ export const WalletContext = createContext({
   connectWallet: () => {},
 });
 
-const contractAddress = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0';
+const contractAddress = '0xE1bcA7D3fb003e0c423EF48d2AadAd05004B27a8';
 
 export default function WalletProvider(props: { children: ReactNode }) {
   const [wallet, setWallet] = useState<Wallet>();
@@ -60,6 +55,7 @@ export default function WalletProvider(props: { children: ReactNode }) {
   }, []);
 
   const onAccountsChanged = (addresses: string[]) => {
+    console.log('Wallet:', addresses);
     if (!addresses.length) {
       setWallet(undefined);
     } else {
@@ -73,7 +69,7 @@ export default function WalletProvider(props: { children: ReactNode }) {
       setWallet({
         provider,
         signer,
-        address: addresses[0],
+        address: addresses[0] as string,
         contract: { greeter },
       });
     }

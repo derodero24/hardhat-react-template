@@ -1,7 +1,11 @@
-/cache
-/coverage
-/node_modules
+coverage.json
 
-/.DS_store
-/.env
-/coverage.json
+node_modules
+cache
+coverage
+public/build
+
+.DS_store
+.env
+.cache
+.netlify

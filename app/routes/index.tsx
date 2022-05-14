@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 
-import { WalletContext } from './ethereum/WalletProvider';
+import WalletProvider, { WalletContext } from '../ethereum/WalletProvider';
 
-export default function App(): JSX.Element {
+function IndexCore(): JSX.Element {
   const { wallet, connectWallet } = useContext(WalletContext);
   const [text, setText] = useState('');
   const [greet, setGreet] = useState('');
@@ -38,5 +38,13 @@ export default function App(): JSX.Element {
         <button onClick={connectWallet}>Connect Wallet</button>
       )}
     </>
+  );
+}
+
+export default function Index(): JSX.Element {
+  return (
+    <WalletProvider>
+      <IndexCore />
+    </WalletProvider>
   );
 }
